@@ -13,6 +13,7 @@ var rawData = [0];
 var filData = [0];
 var rawDiffData = [0];
 var rawDiff2Data = [];
+var hrData = [];
 var index_last = 0;
 
 for (let i = 0; i < 100; i++) {
@@ -93,14 +94,14 @@ canvasCtx = canvas.getContext("2d");
     let val1 = rawDiffData[rawDiffData.length - 1];
     let val2 = rawDiffData[rawDiffData.length - 2];
     if (val1 < 0 && val2 >= 0) {
-      console.log((20 / index_last) * 60);
+      hrData.push((20 / index_last) * 60);
       index_last = 0;
     } else {
       index_last += 1;
     }
 
-    if (rawDiffData.length > 100) rawDiffData.shift();
-    myChart.data.datasets[0].data = [...rawDiffData];
+    if (hrData.length > 100) hrData.shift();
+    myChart.data.datasets[0].data = [...hrData];
     cnt++;
     myChart.update();
   }
