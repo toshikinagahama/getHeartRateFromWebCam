@@ -45,12 +45,10 @@ var myChart = new Chart(ctx, {
 });
 
 // video要素をつくる
-video = document.createElement("video");
-video.id = "video";
+video = document.getElementById("video");
 video.width = cameraSize.w;
 video.height = cameraSize.h;
 video.autoplay = true;
-document.getElementById("videoPreview").appendChild(video);
 
 // video要素にWebカメラの映像を表示させる
 media = navigator.mediaDevices
